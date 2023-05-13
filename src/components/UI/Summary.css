@@ -1,0 +1,16 @@
+.summary {
+  top: 250px;
+  left: 350px;
+  height: 35%;
+  width: 50%;
+  background-color: #4c4f52;
+  position: absolute;
+  color: white;
+}
+.summary-header {
+  text-align: center;
+}
+.summary p {
+  text-align: center;
+  padding: 12px;
+}

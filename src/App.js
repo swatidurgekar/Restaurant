@@ -1,4 +1,5 @@
 import "./App.css";
+import Summary from "./components/UI/Summary";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         src="https://react-meals.netlify.app/meals.96abddfc.jpg"
         alt="food"
       ></img>
+      <Summary />
     </div>
   );
 }
