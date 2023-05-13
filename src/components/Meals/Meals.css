@@ -1,0 +1,20 @@
+.meals {
+  top: 530px;
+  left: 300px;
+  width: 900px;
+  background-color: white;
+  position: absolute;
+  border-radius: 15px;
+  overflow: auto;
+}
+.meal-item {
+  padding: 5px 35px;
+  gap: 2px;
+}
+.meal-item-desc {
+  font-style: italic;
+}
+.meal-item-price {
+  color: brown;
+  font-weight: bold;
+}

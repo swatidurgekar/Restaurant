@@ -1,4 +1,5 @@
 import "./App.css";
+import Meals from "./components/Meals/Meals";
 import Summary from "./components/UI/Summary";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         alt="food"
       ></img>
       <Summary />
+      <Meals />
     </div>
   );
 }
