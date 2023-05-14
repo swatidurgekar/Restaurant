@@ -1,10 +1,12 @@
 import "./App.css";
 import Meals from "./components/Meals/Meals";
 import Summary from "./components/UI/Summary";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   return (
     <div className="app">
+      <Cart />
       <navbar className="nav">
         ReactMeals
         <button className="cart-btn">
