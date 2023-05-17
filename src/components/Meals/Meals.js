@@ -1,33 +1,45 @@
 import "./Meals.css";
+import Button from "../Button/Button";
+import CartContext from "../../store/cart-context";
+import { useContext, useState } from "react";
 
 const Meals = () => {
+  const [quantity, setQuantity] = useState(1);
   const meals = [
     {
       title: "One-Pot Vegetarian Chili Mac",
       description: "Favorite bean and pasta",
-      price: "$129",
+      price: 129,
+      quantity: 0,
     },
     {
       title: "Dal Fry ",
       description: "Dish prepared by cooking black lentil ",
-      price: "$159",
+      price: 159,
+      quantity: 0,
     },
     {
       title: "Aloo Paratha",
       description: "Paratha With Raita",
-      price: "$55",
+      price: 55,
+      quantity: 0,
     },
     {
       title: "Mattar Paneer",
       description: "Aromatic rice with fresh veggies",
-      price: "$149",
+      price: 149,
+      quantity: 0,
     },
   ];
   return (
     <div className="meals">
       {meals.map((item) => {
+        const quantityFunction = () => {
+          const value = document.getElementById(item.title).value;
+          setQuantity(value);
+        };
         return (
-          <div>
+          <div key={item.title}>
             <div className="meal-item">
               <h4>{item.title}</h4>
               <p className="meal-item-desc">{item.description}</p>
@@ -37,13 +49,22 @@ const Meals = () => {
               <form>
                 <label htmlFor="amount">Amount </label>
                 <input
-                  value={1}
+                  onChange={quantityFunction}
                   className="form-input"
-                  id="amount"
+                  id={item.title}
                   type="number"
+                  defaultValue={quantity}
                 ></input>
                 <br />
-                <button className="add-btn">+Add</button>
+                <Button
+                  quantity={quantity}
+                  key={item.price}
+                  item={item}
+                  className="add-btn"
+                  id={item.title}
+                >
+                  +Add
+                </Button>
               </form>
             </div>
             <hr />

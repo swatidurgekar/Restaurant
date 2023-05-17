@@ -1,40 +1,39 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./Cart.css";
+import { useContext } from "react";
+import CartContext from "../../store/cart-context";
 
 const Backdrop = (props) => {
   return <div className="backdrop" onClick={props.onClose}></div>;
 };
 
 const ModalOverlay = (props) => {
-  const cart = [
-    {
-      title: "One-Pot Vegetarian Chili Mac",
-      desc: "Favorite bean and pasta",
-      amount: "$129",
-    },
-  ];
+  let total = 0;
+  const cartCtx = useContext(CartContext);
+  cartCtx.items.forEach((item) => {
+    total += Number(item.price) * Number(item.quantity);
+  });
   return (
     <div className="cart">
-      {cart.map((item) => {
-        return (
-          <div className="cart1">
-            <p className="cart-item">{item.title}</p>
-            <h3 className="cart-amount">Total Amount </h3>
-            <div className="cart2">
-              <h3>{item.amount}</h3>
-              <button onClick={props.onClose} className="btn">
-                Close
-              </button>
-              <button className="btn">Order</button>
+      {cartCtx.items.length > 0 &&
+        cartCtx.items.map((item) => {
+          return (
+            <div key={item.title} className="cart1">
+              <h4 className="cart-item">{item.title}</h4>
+              <p>quantity:{item.quantity}</p>
+              <h3 className="cart-price">{item.price}</h3>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      <h3 className="cart-amount">Total Amount:{total}</h3>
+      <button onClick={props.onClose} className="btn">
+        Close
+      </button>
+      <button className="btn">Order</button>
     </div>
   );
 };
-
 const Cart = (props) => {
   return (
     <React.Fragment>

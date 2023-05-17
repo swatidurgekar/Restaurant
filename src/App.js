@@ -1,37 +1,19 @@
 import "./App.css";
-import Meals from "./components/Meals/Meals";
-import Summary from "./components/UI/Summary";
-import Cart from "./components/Cart/Cart";
-import { useState } from "react";
+import Header from "./components/Layout/Header";
+import { useContext } from "react";
+import CartContext from "./store/cart-context";
+import CartProvider from "./store/CartProvider";
 
 function App() {
-  const [cart, setCart] = useState(false);
-
-  const clickHandler = () => {
-    setCart(true);
-  };
-
-  const cartCloseHandler = () => {
-    setCart(false);
-  };
-
+  const cartCtx = useContext(CartContext);
+  let quantity = 0;
+  cartCtx.items.forEach((item) => {
+    quantity = quantity + item.quantity;
+  });
   return (
-    <div className="app">
-      {cart && <Cart onClose={cartCloseHandler} />}
-      <navbar className="nav">
-        ReactMeals
-        <button className="cart-btn" onClick={clickHandler}>
-          <i class="fas fa-shopping-cart" />
-          Your Cart :<span className="cart-amt"> 0 </span>
-        </button>
-      </navbar>
-      <img
-        src="https://react-meals.netlify.app/meals.96abddfc.jpg"
-        alt="food"
-      ></img>
-      <Summary />
-      <Meals />
-    </div>
+    <CartProvider>
+      <Header />
+    </CartProvider>
   );
 }
 

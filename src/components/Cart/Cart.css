@@ -10,17 +10,18 @@
 .cart {
   border-radius: 10px;
   background-color: white;
-  position: fixed;
-  top: 30vh;
+  position: absolute;
+  /* top: 30vh; */
   left: 30%;
   width: 30%;
   z-index: 100;
-  overflow: hidden;
+  overflow: auto;
   padding: 5px 10px;
 }
 .cart2 {
   margin-top: -45px;
   margin-left: 300px;
+  position: absolute;
 }
 .cart button {
   background-color: white;
