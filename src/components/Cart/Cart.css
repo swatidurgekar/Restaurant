@@ -18,12 +18,24 @@
   overflow: auto;
   padding: 5px 10px;
 }
-.cart2 {
-  margin-top: -45px;
-  margin-left: 300px;
+.cart-quantity {
   position: absolute;
+  left: 100px;
+  border: 1px solid lightgray;
+  height: 25px;
+  padding: 2px 2px;
 }
-.cart button {
+.cart-price {
+  color: brown;
+  font-weight: bold;
+}
+.item-btn {
+  left: 350px;
+  top: -50px;
+  position: relative;
+  margin: 2px;
+}
+.cart-button {
   background-color: white;
   border-radius: 10px;
   margin-left: 9px;

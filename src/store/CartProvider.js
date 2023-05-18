@@ -11,7 +11,13 @@ const CartProvider = (props) => {
     setItem(items);
   };
 
-  const removeItemFromCartHandler = (id) => {};
+  const removeItemFromCartHandler = (id) => {
+    const array = items.filter((item) => {
+      return item.title !== id.title;
+    });
+    array.push({ ...id, quantity: id.quantity - 1 });
+    setItem(array);
+  };
   const cartContext = {
     items: items,
     addItem: addItemToCartHandler,
